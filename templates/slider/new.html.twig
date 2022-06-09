@@ -1,0 +1,19 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}New Slider{% endblock %}
+
+{% block body %}
+    <h1>Create new Slider</h1>
+
+    {{ include('slider/_form.html.twig') }}
+
+    <a href="{{ path('slider_index') }}">back to list</a>
+{% endblock %}
+{% block javascript %}
+    <script>
+        $('#slider_fileData').on('change', function () {
+            var filename = $(this).val();
+            $(this).next('.custom-file-label').html(filename);
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {% for s in story %}
+    <a href="{{ path('story_view',{'id':s.id,'slug':s.title|slug}) }}">{{ s.title }}</a>
+{% endfor %}
+    {% endblock %}

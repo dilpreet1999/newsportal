@@ -1,0 +1,26 @@
+{% extends "admin/base.html.twig" %}
+{% block title %}Users Report{% endblock %}
+{% block stylesheet %}
+    {{encore_entry_link_tags('datatable')}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.2.1/dt-1.10.16/datatables.min.css"/>
+
+{% endblock %}
+{% block body %}
+    <h1>Users</h1>
+    <div id="table">..Loading</div>
+{% endblock %}
+{% block javascript %}
+    {{ encore_entry_script_tags('datatable') }}
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.2.1/dt-1.10.16/datatables.min.js"></script>
+
+    <script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
+    <script>
+        $(function () {
+            $('#table').initDataTables({{ datatable_settings(datatable) }}, {
+                responsive: true,
+                searching: true,
+                dom: 'Bfrtip',
+            });
+        });
+    </script>
+{% endblock %}

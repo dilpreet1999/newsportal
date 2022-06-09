@@ -1,0 +1,10 @@
+{% extends "admin/base.html.twig" %}
+{% block body %}
+    <h1>Edit Youtube</h1>
+    <b>Story:</b><h4>{{ story.title }}</h4>
+    <strong>Category</strong><h5>{{ story.category.name }}</h5>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit"/>
+    {{ form_end(form) }}
+    {% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}ChannelRefference{% endblock %}
+
+{% block body %}
+    <h1>ChannelRefference</h1>
+<b>Story:</b><h4>{{ story.title }}</h4>
+    <strong>Category</strong><h5>{{ story.category.name }}</h5>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ channel_refference.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ channel_refference.title }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ channel_refference.name.name }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ channel_refference.website }}</td>
+            </tr>
+            <tr>
+                <th>PublishedOn</th>
+                <td>{{ channel_refference.publishedOn ? channel_refference.publishedOn|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('channel_refference_index',{'storyId':storyId}) }}">back to list</a>
+
+    <a href="{{ path('channel_refference_edit', {'id': channel_refference.id,'storyId':storyId}) }}">edit</a>
+
+    {{ include('channel_refference/_delete_form.html.twig') }}
+{% endblock %}

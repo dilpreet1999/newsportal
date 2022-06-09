@@ -1,0 +1,34 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Story index{% endblock %}
+{% block stylesheet %}
+    {{encore_entry_link_tags('datatable')}}
+
+{% endblock %}
+{% block body %}
+    <h1>Story index</h1>
+    <a class="btn btn-primary" href="{{ path('story_new') }}">Create new</a>
+
+    <div id="presidents">...Loading</div>
+{% endblock %}
+{% block javascript %}
+    {{ encore_entry_script_tags('datatable') }}
+
+    <script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
+    <script>
+        $('#presidents').initDataTables({{ datatable_settings(datatable) }}, {
+
+            searching: true,
+            pageLength: 10,
+            responsive: true,
+
+            dom: '<"html5buttons"B>lTfgitp',
+            buttons: [
+                'copy',
+                {extend: 'pdf', title: 'domains'},
+                {extend: 'print'}
+            ]
+
+        });
+    </script>
+{% endblock %}

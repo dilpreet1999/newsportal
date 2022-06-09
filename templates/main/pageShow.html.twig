@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% block title %}{{ page.title}}{% endblock %}
+{% block keyword %}{{ page.keyword}}{% endblock %}
+{% block description %}{{ page.description}}{% endblock %}
+{%block body%}
+
+    <h2>{{page.name}}</h2>
+    <hr>
+    {{ page.description|raw }}
+    
+
+{% endblock %}

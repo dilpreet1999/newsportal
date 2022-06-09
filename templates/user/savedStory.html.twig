@@ -1,0 +1,30 @@
+{% extends "user/base.html.twig" %}
+{% block body %}
+    
+    <table class="table">
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Image
+            </th>
+        </tr>
+        {% for s in story %}
+            <tr>
+                <td>
+                    {{ s.id }}
+                </td>
+                <td>
+                    {{ s.title }}
+                </td>
+                <td>
+                    <img class="img-fluid" src="{{ path('story_images_view',{'id':storyImage.id,'size':200,'name':storyImage.fileName}) }}">
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

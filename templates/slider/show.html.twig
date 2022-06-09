@@ -1,0 +1,50 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Slider{% endblock %}
+
+{% block body %}
+    <h1>Slider</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ slider.id }}</td>
+            </tr>
+            <tr>
+                <th>Header</th>
+                <td>{{ slider.header }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ slider.description }}</td>
+            </tr>
+            <tr>
+                <th>TextColor</th>
+                <td>{{ slider.textColor }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ slider.url }}</td>
+            </tr>
+            <tr>
+                <th>FileData</th>
+                <td>{{ slider.fileData }}</td>
+            </tr>
+            <tr>
+                <th>FileType</th>
+                <td>{{ slider.fileType }}</td>
+            </tr>
+            <tr>
+                <th>FileName</th>
+                <td>{{ slider.fileName }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('slider_index') }}">back to list</a>
+
+    <a href="{{ path('slider_edit', {'id': slider.id}) }}">edit</a>
+
+    {{ include('slider/_delete_form.html.twig') }}
+{% endblock %}

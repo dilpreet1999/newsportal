@@ -1,0 +1,1383 @@
+{% extends 'base.html.twig' %} {% block stylesheet %}
+<style>
+    body,
+    .middle_inner,
+    .headline_outer,
+    .cmsmasters_dropcap.type2,
+    input:not([type=button]):not([type=checkbox]):not([type=file]):not([type=hidden]):not([type=image]):not([type=radio]):not([type=reset]):not([type=submit]):not([type=color]):not([type=range]),
+    .cmsmasters_wrap_pagination .page-numbers,
+    .owl-pagination .owl-page,
+    .cmsmasters_post_timeline .cmsmasters_post_date,
+    .cmsmasters_counters .cmsmasters_counter_wrap .cmsmasters_counter .cmsmasters_counter_inner:before,
+    .cmsmasters_notice .notice_close,
+    #wp-calendar,
+    #wp-calendar th,
+    #wp-calendar td,
+    .widget_custom_contact_form_entries .button:hover,
+    .widget_tag_cloud a,
+    .cmsmasters_stats.stats_mode_circles .cmsmasters_stat_wrap .cmsmasters_stat .cmsmasters_stat_inner,
+    .cmsmasters_mailpoet_form form .mailpoet_submit:hover,
+    .search_bar_wrap .search_field input,
+    .comment-respond textarea,
+    .comment-respond input:not([type=submit]),
+    .comment-respond input[type=submit]:hover,
+    .comment-respond select,
+    .widget_most_popular_widget_list .cmsmasters_most_wrap {
+        background-color: #ffffff;
+    }
+    
+    #page,
+    #main,
+    #middle,
+    .middle_content,
+    #bottom,
+    #footer,
+    .headline,
+    .headline_outer,
+    .middle_inner,
+    .cmsmasters_row,
+    .cmsmasters_row_outer,
+    .cmsmasters_row_outer_parent {
+        width: 100%;
+        position: relative;
+    }
+    
+    div {
+        text-align: left;
+    }
+    
+    element.style {}
+    
+    body,
+    .middle_inner,
+    .headline_outer,
+    .cmsmasters_dropcap.type2,
+    input:not([type=button]):not([type=checkbox]):not([type=file]):not([type=hidden]):not([type=image]):not([type=radio]):not([type=reset]):not([type=submit]):not([type=color]):not([type=range]),
+    .cmsmasters_wrap_pagination .page-numbers,
+    .owl-pagination .owl-page,
+    .cmsmasters_post_timeline .cmsmasters_post_date,
+    .cmsmasters_counters .cmsmasters_counter_wrap .cmsmasters_counter .cmsmasters_counter_inner:before,
+    .cmsmasters_notice .notice_close,
+    #wp-calendar,
+    #wp-calendar th,
+    #wp-calendar td,
+    .widget_custom_contact_form_entries .button:hover,
+    .widget_tag_cloud a,
+    .cmsmasters_stats.stats_mode_circles .cmsmasters_stat_wrap .cmsmasters_stat .cmsmasters_stat_inner,
+    .cmsmasters_mailpoet_form form .mailpoet_submit:hover,
+    .search_bar_wrap .search_field input,
+    .comment-respond textarea,
+    .comment-respond input:not([type=submit]),
+    .comment-respond input[type=submit]:hover,
+    .comment-respond select,
+    .widget_most_popular_widget_list .cmsmasters_most_wrap {
+        background-color: #ffffff;
+    }
+    
+    #page,
+    #main,
+    #middle,
+    .middle_content,
+    #bottom,
+    #footer,
+    .headline,
+    .headline_outer,
+    .middle_inner,
+    .cmsmasters_row,
+    .cmsmasters_row_outer,
+    .cmsmasters_row_outer_parent {
+        width: 100%;
+        position: relative;
+    }
+    
+    div {
+        text-align: left;
+    }
+    
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    figure,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    font,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td {
+        background: transparent;
+        border: 0;
+        margin: 0;
+        padding: 0;
+        vertical-align: baseline;
+        outline: none;
+    }
+    
+    body,
+    .headline_outer,
+    input:not([type=button]):not([type=checkbox]):not([type=file]):not([type=hidden]):not([type=image]):not([type=radio]):not([type=reset]):not([type=submit]):not([type=color]):not([type=range]),
+    textarea,
+    option,
+    li,
+    .cmsmasters_open_project .project_features_title,
+    .cmsmasters_open_profile .cmsmasters_profile_subtitle,
+    .cmsmasters_open_profile .profile_features_title,
+    .cmsmasters_pricing_table .cmsmasters_period,
+    .cmsmasters_quotes .cmsmasters_quote_subtitle_wrap *,
+    .cmsmasters_sitemap_wrap a,
+    .cmsmasters_post_timeline a .cmsmasters_mon_year,
+    .cmsmasters_quotes .cmsmasters_quote_subtitle_wrap .cmsmasters_quote_site a:hover,
+    #page .profile_social_icons_list a {
+        color: #565656;
+    }
+    
+    body,
+    .cmsmasters_breadcrumbs *,
+    .cmsmasters_footer_default .footer_custom_html,
+    .about_author .about_author_cont,
+    .cmsmasters_counters .cmsmasters_counter_wrap .cmsmasters_counter_subtitle,
+    .cmsmasters_icon_list_items li h4,
+    .cmsmasters_twitter_wrap .cmsmasters_twitter_item_content a,
+    .cmsmasters_notice .notice_content,
+    .cmsmasters_pricing_table .feature_list li,
+    .cmsmasters_pricing_table .feature_list li a,
+    .error .error_subtitle,
+    .cmsmasters_sitemap_wrap a,
+    .widget_custom_contact_info_entries a,
+    .cmsmasters_open_post .cmsmasters_post_cont_about_author,
+    .cmsmasters_open_post .cmsmasters_post_cont_about_author a,
+    .cmsmasters_open_post .cmsmasters_post_content,
+    .cmsmasters_open_post .cmsmasters_post_content a:not(.wp-block-button__link),
+    .widget_nav_menu ul>li a,
+    .widget_custom_posts_tabs_entries .cmsmasters_tabs .cmsmasters_lpr_tabs_cont a,
+    .widget_pages ul li a,
+    .widget_categories ul li a,
+    .widget_archive ul li a,
+    .widget_meta ul li a,
+    .widget_recent_comments ul li a,
+    .widget_recent_entries ul li a,
+    .widget_rss ul li a,
+    .cmsmasters_quotes_grid .cmsmasters_quote_content,
+    div.sp-location-weather-widget .weather-region,
+    div.sp-location-weather-widget .weather-date,
+    .cmsmasters_open_post .cmsmasters_post_content table,
+    #page .cmsmasters_open_post .cmsmasters_post_content table a {
+        font-family: 'Heebo', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+        font-size: 15px;
+        line-height: 24px;
+        font-weight: 400;
+        font-style: normal;
+    }
+    
+    body {
+        overflow-x: hidden;
+        position: relative;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    #page:after,
+    #middle:after,
+    .middle_inner:after,
+    .middle_content:after,
+    #bottom:after,
+    .bottom_bg:after,
+    .content_wrap:after,
+    .cmsmasters_row_inner:after,
+    .cmsmasters_row_margin:after,
+    .cmsmasters_column_inner:after {
+        content: '.';
+        display: block;
+        clear: both;
+        height: 0;
+        visibility: hidden;
+        overflow: hidden;
+    }
+    
+     ::selection {
+        background: #e12b2b;
+        color: #ffffff;
+    }
+    
+    @media only screen and (min-width: 1440px) .headline_inner,
+    .post-password-form,
+    .content_wrap,
+    .bottom_outer,
+    .footer_inner,
+    .cmsmasters_row_inner,
+    .cmsmasters_row_title_wrap,
+    .error_inner {
+        width: 1360px;
+    }
+    
+    .content_wrap {
+        display: block;
+        min-width: inherit;
+    }
+    
+    .middle_content {
+        padding: 50px 0;
+    }
+    
+    #page,
+    #main,
+    #middle,
+    .middle_content,
+    #bottom,
+    #footer,
+    .headline,
+    .headline_outer,
+    .middle_inner,
+    .cmsmasters_row,
+    .cmsmasters_row_outer,
+    .cmsmasters_row_outer_parent {
+        width: 100%;
+        position: relative;
+    }
+    
+    .cmsmasters_search,
+    .cmsmasters_archive {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .cmsmasters_archive_type:first-of-type {
+        padding-top: 0;
+    }
+    
+    .cmsmasters_archive_type {
+        padding: 50px 0 0;
+        overflow: hidden;
+    }
+    
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section,
+    object,
+    video,
+    audio,
+    embed,
+    canvas,
+    iframe,
+    main,
+    summary {
+        display: block;
+    }
+    
+    .cmsmasters_archive_type .cmsmasters_archive_item_img_wrap {
+        margin: 0 40px 0 0;
+        width: 34%;
+        position: relative;
+        float: left;
+    }
+    
+    .cmsmasters_archive_type.has-post-thumbnail .cmsmasters_archive_item_type {
+        position: absolute;
+        margin: 0;
+        width: auto;
+        left: auto;
+        right: -5px;
+        top: 12px;
+        bottom: auto;
+        z-index: 10;
+        overflow: hidden;
+    }
+    
+    .cmsmasters_slider_post_date::before,
+    .widget_custom_latest_projects_entries .cmsmasters_slider_post_date::before,
+    .widget_custom_twitter_entries .tweet_time:before,
+    mark,
+    form .formError .formErrorContent,
+    .cmsmasters_icon_box.cmsmasters_icon_box_left_top:before,
+    .cmsmasters_icon_box.cmsmasters_icon_box_left:before,
+    .cmsmasters_icon_box.cmsmasters_icon_box_top:before,
+    .search_bar_wrap .search_button button,
+    .cmsmasters_mailpoet_form form .mailpoet_submit,
+    .cmsmasters_post_read_more,
+    .cmsmasters_slider_post_read_more,
+    .cmsmasters_archive_type a.cmsmasters_cat_color,
+    .cmsmasters_post_default .cmsmasters_video_preview_bottom *,
+    .cmsmasters_post_default .cmsmasters_video_preview_bottom a:hover,
+    .mejs-overlay-button,
+    .share_posts a,
+    .cmsmasters_sharing a,
+    .cmsmasters_project_grid .cmsmasters_project_date,
+    .widget_mailpoet_form .mailpoet_submit,
+    .widget_mailpoet_form .mailpoet_submit:hover,
+    div.sp-location-weather-widget .weather-temp,
+    .cmsmasters_open_post .cmsmasters_owl_slider .owl-buttons>div>span,
+    .cmsmasters_posts_slider.cmsmasters_slide_project .owl-buttons>div>span,
+    .a-stats a:hover {
+        color: #ffffff;
+    }
+    
+    .cmsmasters_button,
+    .button,
+    input[type=submit],
+    input[type=button],
+    button,
+    table thead th,
+    table thead td,
+    .owl-pagination .owl-page:hover,
+    .owl-pagination .owl-page.active,
+    .cmsmasters_items_filter_wrap .current a,
+    .cmsmasters_items_filter_wrap .current,
+    a.cmsmasters_cat_color,
+    span.cmsmasters_cat_color,
+    span.cmsmasters_cat_color a,
+    .cmsmasters_profile .cmsmasters_profile_subtitle,
+    .cmsmasters_icon_list_items .cmsmasters_icon_list_item .cmsmasters_icon_list_icon,
+    .cmsmasters_toggles .cmsmasters_toggles_filter a:hover,
+    .cmsmasters_toggles.toggles_mode_toggle .current_toggle .cmsmasters_toggle_title,
+    .cmsmasters_notice .notice_close:hover,
+    .cmsmasters_archive_type .cmsmasters_archive_item_type span,
+    .widget_custom_contact_form_entries .button,
+    .widget_custom_twitter_entries .tweet_time:before,
+    .search_bar_wrap .search_button button,
+    .cmsmasters_mailpoet_form form .mailpoet_submit,
+    .cmsmasters_posts_slider.cmsmasters_slide_project .owl-buttons>div:hover>span {
+        background-color: #e12b2b;
+    }
+    
+    .cmsmasters_archive_type .cmsmasters_archive_item_type span {
+        line-height: 36px;
+    }
+    
+    .cmsmasters_archive_type .cmsmasters_archive_item_type span {
+        font-family: 'Heebo', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+        font-size: 13px;
+        line-height: 42px;
+        font-weight: bold;
+        font-style: normal;
+        text-transform: uppercase;
+    }
+    
+    .cmsmasters_archive_type .cmsmasters_archive_item_type span {
+        display: inline-block;
+        padding: 0 16px;
+    }
+    
+    .cmsmasters_header_search_form .cmsmasters_header_search_form_close,
+    .cmsmasters_button,
+    .button,
+    input[type=submit],
+    input[type=button],
+    button,
+    table thead th,
+    table thead td,
+    a.cmsmasters_cat_color,
+    span.cmsmasters_cat_color,
+    span.cmsmasters_cat_color a,
+    .cmsmasters_project_puzzle .cmsmasters_project_meta>span:before,
+    .cmsmasters_items_filter_wrap .current a,
+    .cmsmasters_items_filter_wrap .current,
+    .cmsmasters_project_grid .cmsmasters_project_title a,
+    .cmsmasters_project_puzzle .project_inner .cmsmasters_project_footer *,
+    .cmsmasters_profile .cmsmasters_profile_subtitle,
+    .cmsmasters_icon_list_items.cmsmasters_color_type_border .cmsmasters_icon_list_item .cmsmasters_icon_list_icon:before,
+    .cmsmasters_toggles .cmsmasters_toggles_filter a:hover,
+    .cmsmasters_toggles.toggles_mode_toggle .current_toggle .cmsmasters_toggle_title,
+    .cmsmasters_toggles.toggles_mode_toggle .current_toggle .cmsmasters_toggle_title a,
+    .cmsmasters_notice .notice_close:hover,
+    .cmsmasters_quotes_slider .cmsmasters_quote_image.cmsmasters_quote_placeholder,
+    .cmsmasters_slider_project .cmsmasters_slider_project_inner_wrap,
+    .cmsmasters_slider_project .cmsmasters_slider_project_inner_wrap a,
+    .cmsmasters_archive_type .cmsmasters_archive_item_type span,
+    .widget_custom_contact_form_entries .button,
+    .widget_custom_popular_projects_entries .cmsmasters_slider_project_header a,
+    .widget_custom_latest_projects_entries .cmsmasters_slider_project_header a,
+    .widget_custom_popular_projects_entries .cmsmasters_slider_post_date *,
+    .widget_custom_latest_projects_entries .cmsmasters_slider_post_date *,
+    .widget_custom_popular_projects_entries .cmsmasters_slider_post_date::before,
+    .widget_custom_latest_projects_entries .cmsmasters_slider_post_date::before,
+    .widget_custom_twitter_entries .tweet_time:before,
+    mark,
+    form .formError .formErrorContent,
+    .cmsmasters_icon_box.cmsmasters_icon_box_left_top:before,
+    .cmsmasters_icon_box.cmsmasters_icon_box_left:before,
+    .cmsmasters_icon_box.cmsmasters_icon_box_top:before,
+    .search_bar_wrap .search_button button,
+    .cmsmasters_mailpoet_form form .mailpoet_submit,
+    .cmsmasters_post_read_more,
+    .cmsmasters_slider_post_read_more,
+    .cmsmasters_archive_type a.cmsmasters_cat_color,
+    .cmsmasters_post_default .cmsmasters_video_preview_bottom *,
+    .cmsmasters_post_default .cmsmasters_video_preview_bottom a:hover,
+    .mejs-overlay-button,
+    .share_posts a,
+    .cmsmasters_sharing a,
+    .cmsmasters_project_grid .cmsmasters_project_date,
+    .widget_mailpoet_form .mailpoet_submit,
+    .widget_mailpoet_form .mailpoet_submit:hover,
+    div.sp-location-weather-widget .weather-temp,
+    .cmsmasters_open_post .cmsmasters_owl_slider .owl-buttons>div>span,
+    .cmsmasters_posts_slider.cmsmasters_slide_project .owl-buttons>div>span,
+    .a-stats a:hover {
+        color: #ffffff;
+    }
+    
+    .cmsmasters_archive_type .cmsmasters_archive_item_img_wrap .cmsmasters_img_wrap {
+        overflow: hidden;
+    }
+    
+    .cmsmasters_img_wrap {
+        display: block;
+        position: relative;
+        text-align: left;
+    }
+    
+    figure {
+        background-image: none !important;
+    }
+    
+    .cmsmasters_archive_type .preloader {
+        padding-bottom: 100%;
+    }
+    
+    html.csstransitions a,
+    html.csstransitions .cmsmasters_icon_wrap .cmsmasters_simple_icon_title,
+    html.csstransitions .img_placeholder_small,
+    html.csstransitions .cmsmasters_sitemap_wrap .cmsmasters_sitemap>li>ul>li>ul li a:before {
+        transition: color .3s ease-in-out, background-color .3s ease-in-out, opacity .3s ease-in-out, border-color .3s ease-in-out;
+    }
+    
+    .preloader {
+        display: block;
+        width: 100%;
+        height: 0;
+        position: relative;
+        text-align: center;
+    }
+    
+    a {
+        outline: 0;
+        text-decoration: none;
+    }
+    
+    a,
+    h1 a:hover,
+    h2 a:hover,
+    h3 a:hover,
+    h4 a:hover,
+    h5 a:hover,
+    h6 a:hover,
+    .color_2,
+    .cmsmasters_icon_wrap a .cmsmasters_simple_icon,
+    #page .cmsmasters_likes a:hover:before,
+    #page .cmsmasters_likes a.active:before,
+    .cmsmasters_comments a:hover:before,
+    .cmsmasters_comments .active:before,
+    .cmsmasters_wrap_pagination a:hover,
+    .sticky .cmsmasters_post_cont_wrap:before,
+    .cmsmasters_post_timeline a:hover .cmsmasters_day,
+    .cmsmasters_post_timeline .cmsmasters_post_info a span,
+    .about_author .about_author_cont a:hover,
+    .cmsmasters_pings_list .comment-body span a:hover,
+    .cmsmasters_comment_item .cmsmasters_comment_item_cont_info a:hover,
+    #page .cmsmasters_open_project .cmsmasters_project_category a,
+    #page .cmsmasters_open_profile .cmsmasters_profile_category a,
+    #page .profile_social_icons_list a:hover,
+    .cmsmasters_counters .cmsmasters_counter_wrap .cmsmasters_counter .cmsmasters_counter_inner:before,
+    .cmsmasters_toggles.toggles_mode_accordion .current_toggle .cmsmasters_toggle_title,
+    .cmsmasters_toggles.toggles_mode_accordion .current_toggle .cmsmasters_toggle_title a,
+    .cmsmasters_toggles.toggles_mode_accordion .cmsmasters_toggle_wrap:hover .cmsmasters_toggle_title,
+    .cmsmasters_toggles.toggles_mode_accordion .cmsmasters_toggle_wrap:hover .cmsmasters_toggle_title a,
+    .cmsmasters_twitter_wrap .twr_icon,
+    .cmsmasters_twitter_wrap .cmsmasters_twitter_item_content a,
+    .cmsmasters_quotes .cmsmasters_quote_subtitle_wrap a:hover,
+    .cmsmasters_sitemap_wrap a:hover,
+    .widget_pages ul li a:hover,
+    .widget_categories ul li a:hover,
+    .widget_archive ul li a:hover,
+    .widget_meta ul li a:hover,
+    .widget_recent_comments ul li a:hover,
+    .widget_recent_entries ul li a:hover,
+    .widget_nav_menu ul li a:hover,
+    .widget_rss ul li a:hover,
+    .widget_custom_contact_info_entries>span:before,
+    .widget_custom_contact_info_entries .adress_wrap:before,
+    .widget_nav_menu ul>li a:hover,
+    .widget_custom_twitter_entries .tweet_text a:hover,
+    .cmsmasters_wrap_more_items.cmsmasters_loading:before,
+    .cmsmasters_icon_box.cmsmasters_icon_top:before,
+    .cmsmasters_icon_box.cmsmasters_icon_heading_left .icon_box_heading:before,
+    .cmsmasters_icon_list_items.cmsmasters_color_type_icon .cmsmasters_icon_list_icon:before,
+    .cmsmasters_stats.stats_mode_bars.stats_type_horizontal .cmsmasters_stat_wrap .cmsmasters_stat .cmsmasters_stat_inner:before,
+    .cmsmasters_stats.stats_mode_circles .cmsmasters_stat_wrap .cmsmasters_stat .cmsmasters_stat_inner:before,
+    .bypostauthor>.comment-body .alignleft:before,
+    .cmsmasters_sitemap_wrap .cmsmasters_sitemap>li>a:hover,
+    .cmsmasters_sitemap_wrap .cmsmasters_sitemap>li>ul>li>a:hover,
+    .cmsmasters_sitemap_wrap .cmsmasters_sitemap_category>li>a:hover,
+    .cmsmasters_attach_img .cmsmasters_attach_img_edit a,
+    .cmsmasters_attach_img .cmsmasters_attach_img_meta a,
+    .cmsmasters_tabs .tab_comments li>a:hover,
+    .cmsmasters_quotes .cmsmasters_quote_subtitle_wrap .cmsmasters_quote_site a,
+    .cmsmasters_quotes .cmsmasters_quote_subtitle,
+    .widget_tag_cloud a:hover,
+    .widget_custom_latest_projects_entries .widgettitle+.widget_custom_projects_entries_slides .owl-controls .owl-buttons>div>span:hover,
+    .widget_custom_popular_projects_entries .widgettitle+.widget_custom_projects_entries_slides .owl-controls .owl-buttons>div>span:hover,
+    .cmsmasters_post_tags>a:hover,
+    .cmsmasters_wrap_pagination a.current,
+    .cmsmasters_wrap_pagination .current,
+    .cmsmasters_quotes_slider .owl-buttons>div:hover,
+    .cmsmasters_slide_nav.cmsmasters_posts_slider .owl-buttons>div>span:hover,
+    .cmsmasters_roll_titles_slider_wrap .owl-buttons>div>span:hover,
+    .cmsmasters_roll_titles_wrap .cmsmasters_roll_titles_info_title,
+    .cmsmasters_wrap_items_loader .cmsmasters_items_loader:hover,
+    .cmsmasters_prev_arrow:hover,
+    .cmsmasters_next_arrow:hover,
+    a>.cmsmasters_post_date abbr,
+    .cmsmasters_open_post .cmsmasters_owl_slider .owl-buttons>div>span:hover {
+        color: #e12b2b;
+    }
+    
+    a,
+    .subpage_nav>strong,
+    .subpage_nav>span,
+    .subpage_nav>a {
+        font-family: 'Heebo', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+        font-size: 15px;
+        line-height: 24px;
+        font-weight: 400;
+        font-style: normal;
+        text-transform: none;
+    }
+    
+    a {
+        background: transparent;
+    }
+    
+    .preloader .full-width {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    .full-width {
+        min-width: 100%;
+    }
+    
+    img {
+        image-rendering: auto;
+    }
+    
+    img {
+        border: 0;
+    }
+    
+    img {
+        display: inline-block;
+        color: transparent;
+        font-size: 0;
+        vertical-align: middle;
+        max-width: 100%;
+    }
+    
+    .preloader {
+        display: block;
+        width: 100%;
+        height: 0;
+        padding-bottom: 58.1%;
+        position: relative;
+        text-align: center;
+    }
+    
+    a {
+        outline: 0;
+        text-decoration: none;
+        transition: color 110ms ease-in-out;
+    }
+    
+    a,
+    .subpage_nav>strong,
+    .subpage_nav>span,
+    .subpage_nav>a {
+        font-family: 'Heebo', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+        line-height: 24px;
+        font-weight: 400;
+        font-style: normal;
+        text-transform: none;
+        text-decoration: none;
+    }
+    
+    .cmsmasters_img_wrap {
+        display: block;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .cmsmasters_archive_type .cmsmasters_archive_item_cont_wrap {
+        padding-top: 16px;
+        overflow: hidden;
+    }
+    
+    .headline_outer a:hover,
+    a:hover,
+    .cmsmasters_icon_wrap a:hover .cmsmasters_simple_icon,
+    .cmsmasters_header_search_form button:hover,
+    .cmsmasters_post_default .cmsmasters_post_info,
+    .cmsmasters_post_default .cmsmasters_post_info>a:hover,
+    .cmsmasters_post_masonry .cmsmasters_post_footer,
+    .cmsmasters_post_timeline .cmsmasters_post_footer,
+    .cmsmasters_post_timeline .cmsmasters_post_footer>a:hover,
+    .cmsmasters_post_timeline .cmsmasters_post_info a:hover span,
+    .cmsmasters_open_post .cmsmasters_post_cont_info_meta,
+    .cmsmasters_open_post .cmsmasters_post_cont_info_meta>a:hover,
+    .cmsmasters_project_grid .cmsmasters_project_footer,
+    .cmsmasters_project_grid .cmsmasters_project_footer>a:hover,
+    .cmsmasters_project_puzzle .cmsmasters_project_meta,
+    .cmsmasters_project_puzzle .cmsmasters_project_meta>a:hover,
+    .cmsmasters_post_author a:hover,
+    .cmsmasters_likes a,
+    .cmsmasters_comments a,
+    .cmsmasters_views,
+    .cmsmasters_views a,
+    .cmsmasters_wrap_pagination a,
+    .post_nav span,
+    .about_author .about_author_cont a,
+    .cmsmasters_single_slider .cmsmasters_single_slider_item_title a:hover,
+    #page .cmsmasters_open_project .cmsmasters_project_category a:hover,
+    #page .cmsmasters_open_profile .cmsmasters_profile_category a:hover,
+    .cmsmasters_twitter_wrap .cmsmasters_twitter_item_content a:hover,
+    .cmsmasters_slider_post .cmsmasters_slider_post_footer,
+    .cmsmasters_slider_post .cmsmasters_slider_post_footer>a:hover,
+    .cmsmasters_slider_post_author a:hover,
+    .error .error_cont .search_button button:hover,
+    .cmsmasters_archive_type .cmsmasters_archive_item_info,
+    .cmsmasters_archive_type .cmsmasters_archive_item_info a,
+    .widget_custom_popular_projects_entries .cmsmasters_slider_project_footer,
+    .widget_custom_popular_projects_entries .cmsmasters_slider_project_footer>a:hover,
+    .widget_custom_latest_projects_entries .cmsmasters_slider_project_footer,
+    .widget_custom_latest_projects_entries .cmsmasters_slider_project_footer>a:hover,
+    .widget_custom_posts_tabs_entries .cmsmasters_tabs div>a:hover,
+    .widget_custom_posts_tabs_entries .cmsmasters_tabs div>.published,
+    .cmsmasters_tabs .tab_comments li>.cmsmasters_tab_comments_author,
+    .cmsmasters_tabs .tab_comments li>span,
+    .cmsmasters_tabs .tab_comments li>small,
+    .cmsmasters_attach_img .cmsmasters_attach_img_edit a:hover,
+    .cmsmasters_attach_img .cmsmasters_attach_img_meta a:hover,
+    .cmsmasters_breadcrumbs .cmsmasters_breadcrumbs_inner .breadcrumbs_sep,
+    .cmsmasters_breadcrumbs .cmsmasters_breadcrumbs_inner span,
+    .cmsmasters_post_masonry .cmsmasters_post_info *::before,
+    .cmsmasters_post_masonry .cmsmasters_post_info *,
+    .cmsmasters_slider_post .cmsmasters_slider_post_date,
+    .cmsmasters_share,
+    .share_posts .cmsmasters_info_wrap::before,
+    .share_posts .cmsmasters_share .name,
+    .share_posts .cmsmasters_views_wrap .name,
+    .cmsmasters_open_post .cmsmasters_post_date,
+    .cmsmasters_post_tags,
+    .cmsmasters_post_date,
+    a:hover>.cmsmasters_post_date abbr,
+    .cmsmasters_tabs .cmsmasters_tabs_list_item a:before,
+    .cmsmasters_views>span span,
+    div.sp-location-weather-widget .weather-date,
+    div.sp-location-weather-widget .weather-region,
+    .header_top div.sp-location-weather-widget .weather-type,
+    .subpage_nav>span,
+    #wp-calendar #today {
+        color: #878787;
+    }
+    
+    small,
+    form .formError .formErrorContent,
+    .cmsmasters_post_timeline .cmsmasters_post_date,
+    .cmsmasters_open_post .cmsmasters_post_cont_info_meta *,
+    .cmsmasters_open_project .project_details_item_desc,
+    .cmsmasters_open_project .project_features_item_desc,
+    .cmsmasters_open_project .project_details_item_desc a,
+    .cmsmasters_open_project .project_features_item_desc a,
+    .cmsmasters_open_profile .profile_details_item_desc,
+    .cmsmasters_open_profile .profile_features_item_desc,
+    .cmsmasters_open_profile .profile_details_item_desc a,
+    .cmsmasters_open_profile .profile_features_item_desc a,
+    .cmsmasters_project_grid .cmsmasters_project_footer *,
+    .cmsmasters_project_puzzle .cmsmasters_project_meta *,
+    .cmsmasters_profile .cmsmasters_profile_subtitle,
+    .cmsmasters_pings_list .comment-body,
+    .cmsmasters_pings_list .comment-body a,
+    .cmsmasters_wrap_pagination .page-numbers,
+    .post_nav span,
+    .comment-respond .comment-notes,
+    .comment-respond .logged-in-as,
+    .comment-respond .logged-in-as a,
+    .comment-respond label,
+    .cmsmasters-form-builder label,
+    .wpcf7-form p,
+    .wp-caption-text,
+    .cmsmasters_toggles .cmsmasters_toggles_filter a,
+    .cmsmasters_twitter_wrap .published,
+    .cmsmasters_pricing_table .cmsmasters_period,
+    .cmsmasters_quotes .cmsmasters_quote_subtitle_wrap *,
+    .cmsmasters_slider_post .cmsmasters_slider_post_footer *,
+    .cmsmasters_archive_type .cmsmasters_archive_item_info *,
+    #wp-calendar tfoot a,
+    .widget_custom_popular_projects_entries .cmsmasters_slider_project_footer *,
+    .widget_custom_latest_projects_entries .cmsmasters_slider_project_footer *,
+    .widget_custom_posts_tabs_entries .cmsmasters_tabs div>.published,
+    .cmsmasters_tabs .tab_comments li,
+    .cmsmasters_tabs .tab_comments li>span,
+    .cmsmasters_tabs .tab_comments li>.cmsmasters_tab_comments_author,
+    .widget_rss ul li .rss-date,
+    .widget_tag_cloud a,
+    .widget_custom_twitter_entries .tweet_time,
+    .cmsmasters_open_post .subpage_nav,
+    .cmsmasters_open_post .subpage_nav a,
+    .cmsmasters_mailpoet_form label,
+    .cmsmasters_project_puzzle .project_inner .cmsmasters_project_date,
+    .cmsmasters_slider_post .cmsmasters_slider_post_date,
+    .cmsmasters_project_date,
+    .cmsmasters_slider_post_date,
+    .apsc-icons-wrapper.apsc-theme-1 .apsc-each-profile>a .apsc-count,
+    .apsc-icons-wrapper.apsc-theme-1 .apsc-each-profile>a .apsc-media-type,
+    .cmsmasters_share,
+    .share_posts .cmsmasters_share .name,
+    .share_posts .cmsmasters_views_wrap .name,
+    .cmsmasters_comment_item .cmsmasters_comment_item_date,
+    .comment-reply-link,
+    .comment-edit-link,
+    .social_text_link.cmsmasters_sharing a,
+    .formError .formErrorContent {
+        font-family: 'Heebo', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+        font-style: normal;
+        text-transform: none;
+    }
+    
+    .cmsmasters_archive_type .cmsmasters_archive_item_info>* {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0 24px 0 0;
+    }
+    
+    ul li:before,
+    .cmsmasters_open_post .cmsmasters_post_cont_info_meta>span:before,
+    .cmsmasters_project_grid .cmsmasters_project_footer>span:before,
+    .cmsmasters_comment_item .cmsmasters_comment_item_cont_info>*:before,
+    .cmsmasters_slider_post .cmsmasters_slider_post_footer>span:before,
+    .cmsmasters_sitemap_wrap .cmsmasters_sitemap>li>ul>li>ul>li a:before,
+    .cmsmasters_sitemap_wrap .cmsmasters_sitemap_archive>li a:before,
+    .cmsmasters_archive_type .cmsmasters_archive_item_info>span:before,
+    .widget_custom_popular_projects_entries .cmsmasters_slider_project_footer>span:before,
+    .widget_custom_latest_projects_entries .cmsmasters_slider_project_footer>span:before,
+    .widget_most_popular_widget_list .cmsmasters_most_index {
+        color: #e3e3e3;
+    }
+    
+    .cmsmasters_project_grid .cmsmasters_project_footer>span:before,
+    .cmsmasters_project_puzzle .cmsmasters_project_meta>span:before,
+    .cmsmasters_sitemap_wrap .cmsmasters_sitemap>li>ul>li>ul>li a:before,
+    .cmsmasters_sitemap_wrap .cmsmasters_sitemap_archive>li a:before,
+    .cmsmasters_archive_type .cmsmasters_archive_item_info>span:before {
+        content: '\e801';
+        font-family: 'fontello-custom';
+        display: block;
+        width: 4px;
+        height: 4px;
+        font-size: 4px;
+        line-height: 4px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 10px;
+        left: auto;
+        margin: auto;
+    }
+    
+    abbr,
+    address,
+    progress {
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    .dn {
+        display: none;
+    }
+    
+    abbr[data-original-title],
+    abbr[title] {
+        text-decoration: none;
+    }
+    
+    .cmsmasters_archive_type .cmsmasters_archive_item_info>*:last-child {
+        padding: 0;
+    }
+    
+    .cmsmasters_archive_type .cmsmasters_archive_item_category a:first-child {
+        margin-left: 6px;
+    }
+    
+    .cmsmasters_archive_type .cmsmasters_archive_item_category a {
+        display: inline-block;
+        float: none;
+        vertical-align: middle;
+        margin: 0 5px 5px 0;
+    }
+    
+    .cmsmasters_archive_type .cmsmasters_archive_item_header {
+        padding: 0 0 15px;
+    }
+    
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section,
+    object,
+    video,
+    audio,
+    embed,
+    canvas,
+    iframe,
+    main,
+    summary {
+        display: block;
+    }
+    
+    .cmsmasters_archive_type .cmsmasters_archive_item_title {
+        margin: 0;
+        word-wrap: break-word;
+    }
+    
+    .headline_outer a,
+    #slide_top:hover,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    h1 a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    h6 a,
+    .cmsmasters_dropcap.type1,
+    .cmsmasters_dropcap.type2,
+    .cmsmasters_button:hover,
+    .button:hover,
+    input[type=submit]:hover,
+    input[type=button]:hover,
+    button:hover,
+    .cmsmasters_post_default .cmsmasters_post_info>a,
+    .cmsmasters_post_timeline .cmsmasters_post_footer>a,
+    .cmsmasters_post_timeline .cmsmasters_day,
+    .cmsmasters_open_post .cmsmasters_post_cont_info_meta>a,
+    .cmsmasters_post_author a,
+    .cmsmasters_post_tags>a,
+    .post_nav .post_nav_title,
+    .cmsmasters_pings_list .comment-body span a,
+    .cmsmasters_comment_item .cmsmasters_comment_item_cont_info a,
+    .cmsmasters_comment_item .cmsmasters_comment_item_title,
+    .comment-respond .comment-notes,
+    .comment-respond .logged-in-as,
+    .cmsmasters_open_project .project_details_item_title,
+    .cmsmasters_open_project .project_features_item_title,
+    .cmsmasters_open_profile .profile_details_item_title,
+    .cmsmasters_open_profile .profile_features_item_title,
+    .cmsmasters-form-builder label,
+    .wpcf7-form p,
+    .cmsmasters_stats.stats_mode_bars.stats_type_vertical .cmsmasters_stat_wrap .cmsmasters_stat .cmsmasters_stat_inner,
+    .cmsmasters_stats.stats_mode_circles .cmsmasters_stat_wrap .cmsmasters_stat .cmsmasters_stat_inner:before,
+    .wp-caption-text,
+    .cmsmasters_toggles .cmsmasters_toggle_title,
+    .cmsmasters_toggles .cmsmasters_toggle_title a,
+    .cmsmasters_toggles .cmsmasters_toggles_filter a,
+    .cmsmasters_tabs .cmsmasters_tabs_list_item a,
+    .cmsmasters_twitter_wrap .published,
+    .cmsmasters_notice .notice_close,
+    .cmsmasters_pricing_table .cmsmasters_price_wrap,
+    .cmsmasters_quotes_slider .cmsmasters_quote_content,
+    .cmsmasters_slider_post .cmsmasters_slider_post_footer>a,
+    .cmsmasters_slider_post_author a,
+    .widget_pages ul li a,
+    .widget_categories ul li a,
+    .widget_archive ul li a,
+    .widget_meta ul li a,
+    .widget_recent_comments ul li a,
+    .widget_recent_entries ul li a,
+    .widget_nav_menu ul li a,
+    .widget_rss ul li a,
+    #wp-calendar th,
+    .widget_custom_contact_form_entries .button:hover,
+    .widget_nav_menu ul>li a,
+    .widget_custom_posts_tabs_entries .cmsmasters_tabs div>a,
+    .cmsmasters_tabs .tab_comments li>.cmsmasters_tab_comments_author:hover,
+    .widget_tag_cloud a,
+    .widget_custom_twitter_entries .tweet_time,
+    .widget_custom_twitter_entries .tweet_text a,
+    fieldset legend,
+    blockquote footer,
+    table caption,
+    .img_placeholder_small,
+    .cmsmasters_stats.stats_mode_bars.stats_type_vertical .cmsmasters_stat_wrap .cmsmasters_stat_title,
+    .cmsmasters_stats.stats_mode_circles .cmsmasters_stat_wrap .cmsmasters_stat .cmsmasters_stat_inner .cmsmasters_stat_counter_wrap,
+    .cmsmasters_stats.stats_mode_circles .cmsmasters_stat_wrap .cmsmasters_stat_title,
+    .cmsmasters_stats.stats_mode_bars.stats_type_vertical .cmsmasters_stat_wrap .cmsmasters_stat .cmsmasters_stat_inner .cmsmasters_stat_title_counter_wrap,
+    .cmsmasters_counters .cmsmasters_counter_wrap .cmsmasters_counter .cmsmasters_counter_inner .cmsmasters_counter_counter_wrap,
+    .cmsmasters_sitemap_wrap .cmsmasters_sitemap>li>a,
+    .cmsmasters_sitemap_wrap .cmsmasters_sitemap>li>ul>li>a,
+    .cmsmasters_sitemap_wrap .cmsmasters_sitemap>li>ul>li>ul li a:before,
+    .cmsmasters_sitemap_wrap .cmsmasters_sitemap_category>li>a,
+    .cmsmasters_sitemap_wrap .cmsmasters_sitemap_category>li>ul li a:before,
+    .cmsmasters_sitemap_wrap .cmsmasters_sitemap_archive>li a:before,
+    .cmsmasters_tabs .tab_comments li>a,
+    .cmsmasters_mailpoet_form form .mailpoet_submit:hover,
+    .cmsmasters_mailpoet_form label,
+    .cmsmasters_post_read_more:hover,
+    .cmsmasters_slider_post_read_more:hover,
+    .cmsmasters_post_author a,
+    .cmsmasters_wrap_items_loader .cmsmasters_items_loader,
+    .cmsmasters_slider_post .cmsmasters_slider_post_title a:hover,
+    .cmsmasters_post_default .cmsmasters_post_title a:hover,
+    .cmsmasters_post_timeline .cmsmasters_post_title a:hover,
+    .cmsmasters_post_masonry .cmsmasters_post_title a:hover,
+    .cmsmasters_archive_item_title a:hover,
+    .widget .widgettitle,
+    .widget_custom_latest_projects_entries .widgettitle+.widget_custom_projects_entries_slides .owl-controls .owl-buttons>div>span,
+    .widget_custom_popular_projects_entries .widgettitle+.widget_custom_projects_entries_slides .owl-controls .owl-buttons>div>span,
+    .share_posts .cmsmasters_share,
+    .share_posts .cmsmastersView span,
+    .comment-reply-link,
+    .comment-edit-link,
+    .cmsmasters_quotes_slider .owl-buttons>div,
+    .cmsmasters_slide_nav.cmsmasters_posts_slider .owl-buttons>div>span,
+    .cmsmasters_roll_titles_slider_wrap .owl-buttons>div>span,
+    .header_top div.sp-location-weather-widget .weather-temp,
+    div.sp-location-weather-widget .weather-type,
+    .cmsmasters_prev_arrow,
+    .cmsmasters_next_arrow,
+    select {
+        color: #151515;
+    }
+    
+    h2,
+    h2 a,
+    .cmsmasters_stats.stats_mode_bars.stats_type_vertical .cmsmasters_stat_wrap .cmsmasters_stat_inner .cmsmasters_stat_counter_wrap,
+    .widget .widgettitle {
+        font-family: 'Heebo', Arial, Helvetica, 'Nimbus Sans
+ L', sans-serif; font-size: 28px; line-height: 36px; font-weight: bold;
+ font-style: normal;
+        text-transform: none;
+        text-decoration: none;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        padding: 0;
+    }
+    
+    .cmsmasters_archive_type .cmsmasters_archive_item_content {
+        padding: 0 0 20px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    #bottom:after,
+    .bottom_bg:after,
+    .content_wrap:after,
+    .cmsmasters_row_inner:after,
+    .cmsmasters_row_margin:after,
+    .cmsmasters_column_inner:after {
+        content: '.';
+        display: block;
+        clear: both;
+        height: 0;
+        visibility: hidden;
+        overflow: hidden;
+    }
+    
+    a,
+    .subpage_nav>strong,
+    .subpage_nav>span,
+    .subpage_nav>a {
+        font-family: 'Heebo', Arial, Helvetica, 'Nimbus Sans L', sans-serif;
+        line-height: 24px;
+        font-weight: 400;
+        font-style: normal;
+        text-transform: none;
+        text-decoration: none;
+    }
+    
+    .mysection .footer-blogs .box .content h4 {
+        font-size: 14px;
+        color: #000000;
+        font-weight: 600;
+    }
+    
+    .mysection .footer-blogs .box .content span {
+        font-size: 12px;
+    }
+    
+    .box {
+        margin-bottom: 25px;
+    }
+    
+    .mysection .footer-blogs {
+        padding-top: 30px;
+    }
+    
+    .mysection .right-sec {
+        padding-bottom: 20px;
+    }
+    
+    .heading {
+        margin-bottom: 20px;
+    }
+    
+    .heading h3 {
+        background-image: linear-gradient(to top, #e12b2b 4px, rgba(255, 255, 255, 0) 4px);
+        background-position: center calc(1em - 0px);
+        font-size: 24px;
+        line-height: 28px;
+        font-weight: 700;
+        color: #151515;
+        display: inline;
+    }
+    
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    figure,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    font,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td {
+        background: transparent;
+        border: 0;
+        margin: 0;
+        padding: 0;
+        vertical-align: baseline;
+        outline: none;
+    }
+    
+    .mysection .footer-blogs .box .images {
+        float: left;
+        margin-right: 5px;
+    }
+    
+    .mysection .Subscribe {
+        padding: 30px 0px;
+    }
+    
+    .mysection .Subscribe h2 {
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: bold;
+    }
+    
+    .mysection .Subscribe form button {
+        height: 49px;
+        background-color: #E12B2B;
+        font-size: 14px;
+        color: #ffffff;
+        font-weight: bold;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .mysection .Subscribe form input {
+        border: 1px solid #e3e3e3;
+        font-size: 15px;
+        line-height: 24px;
+        font-weight: 300;
+        height: 49px;
+    }
+</style>
+{% endblock %} {% block body %}
+<section class="mysection">
+    <div class="container">
+        <div class="cat">
+            <div class="col-sm-4">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a style="color: #e12b2b;" href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{category.name}}</li>
+                    </ol>
+                </nav>
+            </div>
+            <h2>
+                Category:{{ category.name }}
+            </h2>
+            <div class="row">
+                <div class="col-md-9">
+                    {% if story %}
+                    <div class="middle_inner">
+                        <div class="content_wrap fullwidth">
+                            <!-- Start Content -->
+                            {% for p in story %} {% set storyImg = p.id|getStoryImg %}
+                            <div class="middle_content entry">
+                                <div class="cmsmasters_search">
+                                    <article id="post-13430" class="cmsmasters_archive_type post-13430 post type-post status-publish format-standard has-post-thumbnail hentry category-travel tag-featured">
+                                        <div class="cmsmasters_archive_item_img_wrap">
+                                            <div class="cmsmasters_archive_item_type">
+                                                <span>Post</span>
+                                            </div>
+                                            <figure class="cmsmasters_img_wrap">
+                                                <a href="{{
+                                path(
+                                  'story_view',
+                                  {
+                                    id: p.id,
+                                    slug: p.title|slug
+                                  }
+                                )
+                                }}" title="{{ p.title }}" class="cmsmasters_img_link preloader">
+                                {% if storyImg  %}
+                                <img width="360" height="360" src="{{ path('story_images_view',{'id':storyImg.id,'size':360,'name':storyImg.fileName}) }}" class="full-width wp-post-image" alt="blog6" loading="lazy" title="blog6" srcset="{{ path('story_images_view',{'id':storyImg.id,'size':360,'name':storyImg.fileName}) }} 360w, {{ path('story_images_view',{'id':storyImg.id,'size':360,'name':storyImg.fileName}) }} 150w, {{ path('story_images_view',{'id':storyImg.id,'size':360,'name':storyImg.fileName}) }} 120w, {{ path('story_images_view',{'id':storyImg.id,'size':360,'name':storyImg.fileName}) }} 60w"
+                                                        sizes="(max-width: 360px) 100vw, 360px" />
+                                                        {% else %}
+                                                        <img width="360" height="360" src="https://magazilla.cmsmasters.net/wp-content/uploads/2018/03/blog6-360x360.jpg" class="full-width wp-post-image" alt="blog6" loading="lazy" title="blog6" srcset="https://magazilla.cmsmasters.net/wp-content/uploads/2018/03/blog6-360x360.jpg 360w, https://magazilla.cmsmasters.net/wp-content/uploads/2018/03/blog6-150x150.jpg 150w, https://magazilla.cmsmasters.net/wp-content/uploads/2018/03/blog6-120x120.jpg 120w, https://magazilla.cmsmasters.net/wp-content/uploads/2018/03/blog6-60x60.jpg 60w"
+                                                        sizes="(max-width: 360px) 100vw, 360px" />
+                                {% endif %}
+                                                    
+                                                </a>
+                                            </figure>
+                                        </div>
+                                        <div class="cmsmasters_archive_item_cont_wrap">
+                                            <div class="cmsmasters_archive_item_info entry-meta">
+                                                <span class="cmsmasters_archive_item_date_wrap">
+                                <abbr class="published cmsmasters_archive_item_date"
+                                  title="{{ p.createdOn|date('F m , Y') }}">
+                                  {{ p.createdOn|date('F m, Y') }}
+                                </abbr><abbr class="dn date updated"
+                                  title="September 30, 2019">
+                                  September 30, 2019
+                                </abbr>
+                              </span><span class="cmsmasters_archive_item_user_name">
+                                by <a href="https://magazilla.cmsmasters.net/author/cmsmasters/"
+                                  rel="author"
+                                  title="Posts by cmsmasters">
+                                  {% if p.user %}
+                                    {{ p.user.name }}
+                                  {% else %}
+                                    Admin
+                                  {% endif %}
+                                </a>
+                              </span><span class="cmsmasters_archive_item_category">
+                                In <a href="{{
+                                  path(
+                                    'story_by_category',
+                                    {
+                                      id: p.category.id,
+                                      slug: p.category.name
+                                    }
+                                  )
+                                  }}"
+                                  style="padding: 2px 10px 2px 10px;color: white"
+                                  class="cmsmasters_cat_color cmsmasters_cat_27"
+                                  rel="category tag">
+                                  {{ p.category.name }}
+                                </a>
+                              </span>
+                                            </div>
+                                            <header class="cmsmasters_archive_item_header entry-header">
+                                                <h2 class="cmsmasters_archive_item_title entry-title">
+                                                    <a href="{{path('story_view',{'id': p.id,'slug': p.title|slug})}}">
+                                  {{ p.title }}
+                                </a>
+                                                </h2>
+                                            </header>
+                                            <div class="cmsmasters_archive_item_content entry-content">
+                                                <p>
+                                                    {% set description = wordWrap(p.body) %} {{ description|raw }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <div class="cmsmasters_wrap_pagination"></div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <!-- Finish Content -->
+                        </div>
+                    </div>
+                    {% else %}
+                    <p>
+                        No Result Found
+                    </p>
+                    {% endif %}
+                </div>
+                <div class="col-md-3">
+                    <div class="right-sec">
+                        <div class="heading">
+                            <h3>
+                                Most Viewed
+                            </h3>
+                        </div>
+                        <div class="footer-blogs">
+                            {% for mv in mostViewed %} {% set img = mv.id|getStoryImg %}
+                            <div class="box">
+                                <div class="images">
+                                    {% if img %}
+                                    <img style="width: 60px;" src="{{ path('story_images_view',{'id':img.id,'size':360,'name':img.fileName}) }}" /> {% else %}
+                                    <img style="width: 60px;" src="{{ asset('') }}images/3.jpg" /> {% endif %}
+                                </div>
+                                <div class="content">
+                                    <span>January 01,2022</span>
+                                    <a href="{{path('story_view',{'id': mv.id,'slug': mv.title|slug})}}">
+                                        <h4>
+                                            {{ mv.title }}
+                                        </h4>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="Subscribe">
+                        <h2>
+                            Subscribe to Our Newsletter
+                        </h2>
+                        <form>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Enter Your Email...*" />
+                            </div>
+                            <button type="button" class="form-control">SUBSCRIBE</button>
+                        </form>
+                        <p>
+                            *we hate spam as much as you do
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div style="margin-left: 14%;
+    margin-bottom: 25px;" class="navigation">
+    {{ knp_pagination_render(story) }}
+</div>
+{% endblock %}

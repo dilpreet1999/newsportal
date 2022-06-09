@@ -1,0 +1,30 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}NewsChannel{% endblock %}
+
+{% block body %}
+    <h1>NewsChannel</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ news_channel.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ news_channel.name }}</td>
+            </tr>
+            <tr>
+                <th>Website</th>
+                <td>{{ news_channel.website }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('news_channel_index') }}">back to list</a>
+
+    <a href="{{ path('news_channel_edit', {'id': news_channel.id}) }}">edit</a>
+
+    {{ include('news_channel/_delete_form.html.twig') }}
+{% endblock %}

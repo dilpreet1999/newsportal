@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>democompany</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+</head>
+
+<body style="background-color: #D0D0CE;">
+    <section id="section-1">
+        <div class="login">
+            <div class="container">
+                <div class="main-box">
+                    <div class="row">
+                        <div class="col-md-5 left-sec">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="box">
+                                <img src="{{asset('images/logo.svg')}}">
+                                <h3>Sign into your account</h3>
+                                <form method="post" action="{{path('user_login')}}">
+                                    {% if error %}
+                                    <div class="alert alert-danger">
+                                        {{error.message}}
+                                    </div>
+                                    {% endif %}
+                                    <div class="form-group">
+                                        <input type="email" name="_username" class="form-control" placeholder="Email Address">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="_password" class="form-control" placeholder="********">
+                                    </div>
+                                    <button type="submit" class="form-control">Login</button>
+                                </form>
+                                <a href="#" class="forget">Forgot password?</a>
+                                <p>Don't have an account?<a href="{{path('user_new')}}"> Register here</a></p>
+                                <div class="row">
+                                    <a style="color:white;" class="btn btn-dark" href="{{path('connect_google_start')}}">Sign With Google</a>&nbsp;
+                                    <a style="color:white;" class="btn btn-dark" href="{{path('connect_google_start')}}">Sign With Facebook</a>
+                                </div>
+                                <div class="terms">
+                                    <a href="#">Terms of use.</a><a href="#">Privacy policy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Story{% endblock %}
+
+{% block body %}
+    <h1>Story</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>{{ story.id }}</td>
+                <td>{{ story.title }}</td>
+               
+                <td>
+                    <div class="btn btn-group">
+                        <a style="margin:2px;" class="btn btn-primary" href="{{ path('story_edit',{'id':story.id}) }}"><i class='fa fa-pencil-alt'></i></a>
+                        <a style="margin:2px;" class="btn btn-primary" href="{{ path('story_tag_add',{'id':story.id}) }}"><i class='fa fa-tag'></i></a>
+                        <a style="margin:2px;" class="btn btn-primary" href="{{ path('channel_refference_index',{'storyId':story.id}) }}"><i class='fas fa-address-book'></i></a>
+                        <a style="margin:2px;" class="btn btn-primary" href="{{ path('story_youtube_index',{'storyId':story.id}) }}"><i class='fab fa-youtube'></i></a>
+                        <a style="margin:2px;" class="btn btn-primary" href="{{ path('story_facebook_index',{'storyId':story.id}) }}"><i class='fab fa-facebook'></i></a>
+                        <a style="margin:2px;" class="btn btn-primary" href="{{ path('story_twitter_index',{'storyId':story.id}) }}"><i class='fab fa-twitter-square'></i></a>
+                        <a style="margin:2px;" class="btn btn-primary" href="{{ path('story_images_index',{'storyId':story.id}) }}"><i class='fas fa-image'></i></a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+                        <a href="{{ path('story_index',{'type':'all'}) }}">back to list</a>
+
+
+    {{ include('story/_delete_form.html.twig') }}
+{% endblock %}

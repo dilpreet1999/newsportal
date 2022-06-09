@@ -1,0 +1,26 @@
+{% extends "user/base.html.twig" %}
+{% block title %}Add Twitter Video {% endblock %}
+{% block body %}
+    <h1>Add Twitter Video </h1>
+    {{ form_start(form) }}
+    <div class="col-sm-12" c>
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+
+    </div>
+    <div class="col-sm-12">
+
+        {{ form_label(form.url) }}
+        <small>(e.g:https://twitter.com/lucaronin/status/1378987769213620226
+            )</small>
+            {{ form_widget(form.url) }}
+
+    </div>
+    <div class="col-sm-12">
+
+        {{ form_label(form.rank) }}
+        {{ form_widget(form.rank) }}
+        <input type="submit" value="submit" class="btn btn-primary"/>
+    </div>
+    {{ form_end(form) }}
+    {% endblock %}

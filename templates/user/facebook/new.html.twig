@@ -1,0 +1,29 @@
+{% extends "user/base.html.twig" %}
+{% block title %}Add Facebook Video {% endblock %}
+{% block body %}
+    <h1>Add Facebook Video </h1>
+    {{ form_start(form) }}
+    <div class="col-sm-12">
+
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+
+    </div>
+    <div class="col-sm-12">
+
+        {{ form_label(form.url) }}
+        <small>(e.g:https://www.facebook.com/watch/?v=1470067170005039
+            )</small>
+            {{ form_widget(form.url) }}
+
+    </div>
+    <div class="col-sm-12">
+
+        {{ form_label(form.rank) }}
+        {{ form_widget(form.rank) }}
+
+    </div>
+    {{ form_widget(form) }}
+    <input style="margin-top: 4px;" class="ui button" type="submit"/>
+    {{ form_end(form) }}
+{% endblock %}

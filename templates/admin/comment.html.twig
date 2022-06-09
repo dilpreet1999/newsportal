@@ -1,0 +1,39 @@
+{% extends "admin/base.html.twig" %}
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Message</th>
+                <th>Status</th>
+                <th>Story</th>
+                <th>User</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for comment in comments %}
+                <tr>
+
+                    <td>{{ comment.id }}</td>
+                    <td>{{ comment.message }}</td>
+                    {% if comment.isApprove == 'true' %}
+                
+                        <td class="badge badge-success">Approve</td>
+                    {% else %}
+                        <td class="badge badge-danger">
+                            <a style="color:white;" href="{{ path('comment_approve',{'id':comment.id}) }}">Set Approve</a>
+                        </td>
+                        
+                    {% endif %}
+                    <td>{{ comment.story.title }}</td>
+                    <td>{{ comment.user.name }}</td>
+                    <td>
+                        <a href="{{ path('comment_delete',{'id':comment.id}) }}"><i style="color:red;" class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

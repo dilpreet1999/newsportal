@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}{%endblock%}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> {% block stylesheet %}{% endblock %}
+    <style>
+        .search-form {
+            display: none;
+        }
+        a[aria-expanded="true"]::before{
+            content:''!important;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="section-1">
+        <div class="top-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="left-sec">
+                            <ul>
+                                {% set top = getIsTopCat()%}
+                                {% for t in top %}
+                                <li><a  href="{{ path('story_by_category',{'slug':t.slug}) }}">{{ t.name }}</a></li>
+
+                                {% endfor %}
+                                
+                            </ul> </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="right-sec">
+                            <ul>
+                                <li><a target="_blank" href="{{path('contact_us')}}">CONTACT US</a></li>
+                                <li><a href="{{path('about_us')}}">ABOUT US</a></li>
+                                {% if app.user %}
+                                <li>    
+                                <div class="dropdown show">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      My Account
+                                    </a>
+                                  
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                      <a class="dropdown-item" href="javascript:void(0)">{{ app.user.name|upper }}</a>
+                                      <a class="dropdown-item" href="{{path('user_index')}}">DashBoard</a>
+                                    </div>
+                                  </div>
+                                </li>
+                                {% else %}
+                                <li><a href="{{path('user_login')}}">Login</a></li>
+                                <li><a href="{{path('user_new')}}">Register</a></li>
+                                {% endif %}
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="section-2">
+        <div class="middle-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="left-sec">
+                            <div class="logo">
+                                <a href="/"> <img width="105px" src="{{asset('images/3.png')}}" alt="logo"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="right-sec">
+                            <img src="{{asset('images/add.jpg')}}" width="100%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="section-3">
+        <div class="bottom-header">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg">
+                    <a class="navbar-brand" href="#"></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+          </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav menu">
+                            <li class="toggle"><a href="#" class="nav-link"><i class="fas fa-bars"></i></a></li>
+
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/">Home</a>
+                            </li>
+                            {% set cadt = cat() %} {% for c in cadt %}
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ path('story_by_category',{'slug':c.slug}) }}">
+                                  {{c.name}}
+                                </a>
+                            </li>
+                            {% endfor %} {% set lastCat = getLastCat()%}
+
+
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Categories
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    {% for lc in lastCat %}
+                                    <li> <a class="dropdown-item" href="{{ path('story_by_category',{'slug':lc.slug}) }}">{{ lc.name }}</a></li>
+
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </ul>
+                        <div class="search">
+                            <i class="fa fa-search"></i>
+                        </div>
+
+                    </div>
+                    <div class="search-form">
+                        <form class="row" action="{{path('ajax_search')}}">
+                            <input type="text" name="q" class="form-control" />
+                            <button style="    position: absolute;
+              margin-left: 218px;
+              color: #fff;
+              background-color: #a91717;
+              padding: 6px 7px;
+              border: 1px solid #ffffff;">search</button>
+                        </form>
+                    </div>
+                </nav>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    {% block body %}{% endblock %} {# {{ encore_entry_script_tags('app') }} #}
+    <section id="footer">
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h2>Magazilla</h2>
+                        <p>Magazilla is the most advanced highly customizable drag and drop magazine WordPress theme. Speed, security, SEO, social integration and much more – all in one theme. Start writing, publishing, advertising and sharing in minutes.</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h5>Featured</h5>
+                        {% set featur = getStories() %} {% for f in featur %}
+                        <div class="box">
+                            {%set img = getStoryImg(f.id)%} {% if img != null %}
+
+                            <div class="images">
+                                <img src="{{path('story_image',{'id':img.id,'size':100,'filename':img.filename})}}">
+                            </div>
+                            {% endif %}
+                            <div class="content">
+                                <span>MARCH 14, 2018</span>
+                                <h4>{{ f.title }}</h4>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                    <div class="col-md-3">
+                        <h5>Popular</h5>
+                        {%set popular = mostPopular()%} {% for p in popular %} {%set img = getStoryImg(p.id)%}
+                        <div class="box">
+                            {% if img %}
+                            <div class="images">
+                                <img src="{{asset('story_image',{'id':img.id,'size':100,'filename':img.filename})}}">
+                            </div>
+                            {% endif %}
+
+                            <div class="content">
+                                <span>{{p.createdOn|date('F m, Y')}}</span>
+                                <h4>{{p.title}}</h4>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                    <div class="col-md-3">
+                        <h5>Categories</h5>
+                        <ul>
+                            <li><a href="#">Business</a></li>
+                            <li><a href="#">Culture</a></li>
+                            <li><a href="#">Fashion</a></li>
+                            <li><a href="#">Food</a></li>
+                            <li><a href="#">Tech</a></li>
+                            <li><a href="#">Sports</a></li>
+                            <li><a href="#">Travel</a></li>
+                            <li><a href="#">Nature</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="left-sec">
+                            <p>Privacy Policy / This is a sample website - cmsmasters © 2022 / All Rights Reserved</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="right-sec">
+                            <ul>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Widgets</a></li>
+                                <li><a href="#">Contact us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+        <a class="cross text-white" href="javascript:void(0)" style="float:right;padding:10px;"><i class="fas fa-times"></i></a>
+
+            <div class="sidebar-header">
+                <h3>#Trending</h3>
+            </div>
+            
+            <ul class="list-unstyled components">
+                {% set tags = getAllTags() %}
+                {% for t in tags %}
+                <li class="nav-link">
+                    <a class="nav-link" href="{{ path('tag_search',{'tag':t.name}) }}">{{t.name}}</a>
+
+                </li>
+                {% endfor %}
+                
+
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+
+    </div>
+
+
+    <script src="{{asset('js/owl-slider.js')}}"></script>
+    <script>
+        $(".carousel-item").first().addClass("active");
+    </script>
+    <script>
+        $(".search").click(function() {
+            $(".search-form").toggle();
+            // $(".search-form").display("show");
+        })
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    {% block javascripts %}{% endblock %}
+
+    <script>
+        const toggle = document.querySelector(".toggle");
+        const menu = document.querySelector(".menu");
+        const items = document.querySelectorAll(".item");
+
+        /* Toggle mobile menu */
+        function toggleMenu() {
+            if (menu.classList.contains("active")) {
+                menu.classList.remove("active");
+                toggle.querySelector("a").innerHTML = "<i class='fas fa-bars'></i>";
+                $("#sidebar").hide();
+                
+            } else {
+                menu.classList.add("active");
+                toggle.querySelector("a").innerHTML = "<i class='fas fa-times'></i>";
+                $("#sidebar").show();
+                $("#sidebar").css("width", "300");
+            }
+        }
+
+        /* Activate Submenu */
+        function toggleItem() {
+            if (this.classList.contains("submenu-active")) {
+                this.classList.remove("submenu-active");
+            } else if (menu.querySelector(".submenu-active")) {
+                menu.querySelector(".submenu-active").classList.remove("submenu-active");
+                this.classList.add("submenu-active");
+            } else {
+                this.classList.add("submenu-active");
+            }
+        }
+
+        /* Close Submenu From Anywhere */
+        function closeSubmenu(e) {
+            let isClickInside = menu.contains(e.target);
+
+            if (!isClickInside && menu.querySelector(".submenu-active")) {
+                menu.querySelector(".submenu-active").classList.remove("submenu-active");
+            }
+        }
+        /* Event Listeners */
+        toggle.addEventListener("click", toggleMenu, false);
+        for (let item of items) {
+            if (item.querySelector(".submenu")) {
+                item.addEventListener("click", toggleItem, false);
+            }
+            item.addEventListener("keypress", toggleItem, false);
+        }
+        document.addEventListener("click", closeSubmenu, false);
+        window.setTimeout(function() {
+            $(".alert").fadeTo(500, 0).slideUp(500, function() {
+                $(this).remove();
+            });
+        }, 4000);
+    </script>
+    <script>
+    $(".cross").click(function(){
+        $("#sidebar").hide();
+        $(".menu").removeClass("active");
+        $(".toggle a").html("<i class='fas fa-bars'></i>");
+    });
+    
+    </script>
+     <script src="https://www.google.com/recaptcha/api.js"></script>
+
+</body>
+
+</html>

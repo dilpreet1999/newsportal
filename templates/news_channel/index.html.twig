@@ -1,0 +1,37 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}NewsChannel index{% endblock %}
+
+{% block body %}
+    <h1>NewsChannel index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Icon</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for news_channel in news_channels %}
+            <tr>
+                <td>{{ news_channel.id }}</td>
+                <td>{{ news_channel.name }}</td>
+                <td><img src="{{ path('news_Channel_Image_show',{'id':news_channel.id,'name':news_channel.fileName,'size':150}) }}"></td>
+                <td>
+                    <a href="{{ path('news_channel_show', {'id': news_channel.id}) }}">show</a>
+                    <a href="{{ path('news_channel_edit', {'id': news_channel.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('news_channel_new') }}">Create new</a>
+{% endblock %}

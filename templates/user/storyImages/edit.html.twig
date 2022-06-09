@@ -1,0 +1,13 @@
+{% extends 'user/base.html.twig' %}
+
+{% block title %}Edit StoryImages{% endblock %}
+
+{% block body %}
+    <h1>Edit StoryImages</h1>
+
+    {{ include('story_images/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('user_story_images_index',{'storyId':storyId}) }}">back to list</a><br>
+    <a class="text-danger" href="{{ path('user_story_images_delete',{'id':story_image.id,'storyId':storyId}) }}"><i class=" fa fa-trash"></i>
+    </a>
+{% endblock %}

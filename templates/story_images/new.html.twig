@@ -1,0 +1,13 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}New StoryImages{% endblock %}
+
+{% block body %}
+    <h1>Create new StoryImages</h1>
+
+    {{ include('story_images/_form.html.twig') }}
+
+    <a href="{{ path('story_images_index',{'storyId':storyId}) }}">back to list</a>
+{% endblock %}
+
+

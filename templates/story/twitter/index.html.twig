@@ -1,0 +1,44 @@
+{% extends "admin/base.html.twig" %}
+{% block title %}Twitter Index{% endblock %}
+{% block stylesheet %}
+{{ encore_entry_link_tags('datatable') }}
+{% endblock %}
+{% block body %}
+    <a class="btn btn-dark" href="{{ path('story_twitter_new',{'storyId':storyId}) }}">Create New</a><br>
+    <b>Story:</b><h4>{{ story.title }}</h4>
+    <strong>Category</strong><h5>{{ story.category.name }}</h5>
+    <div id="presidents">...Loading</div>
+{% endblock %}
+{% block javascript %}
+    {{ encore_entry_script_tags('datatable') }}
+    <script type="text/javascript" src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
+    <script>
+            $(function () {
+            $('#presidents').initDataTables({{ datatable_settings(datatable) }},
+                    {
+                        responsive: true,
+                        searching: true,
+                        dom: 'Bfrtip',
+                        ordering: false,
+                        rowReorder: true,
+                    }
+            ).then(function (dt) {
+                dt.on('row-reorder', function (e, diff, edit) {
+                    var result = '';
+                    var order = [];
+                    for (var i = 0, ien = diff.length; i < ien; i++) {
+                        var rowData = dt.row(diff[i].node).data();
+                        var newPos = diff[i].newPosition + 1;
+                        var oldPos = diff[i].oldPosition + 1;
+                        var ar = {'old': oldPos, 'new': newPos};
+                        order.push(ar);
+                    }
+                    $.post("{{path('twitter_section_reorder')}}", {data: order, storyId: '{{ storyId }}'})
+                            .done(function (data) {
+                                        alert("Data Loaded: " + data);
+                                });
+                    });
+                });
+            });
+    </script>
+{% endblock %}

@@ -1,0 +1,44 @@
+{# {{ form_start(form,{'attr':{'onSubmit':'return SubmitForm()','novalidate':'novalidate'}}) }} #}
+<form class="form-group" onSubmit="return SubmitForm();" novalidate action="{{path('story_submit')}}" method="post" >
+<div class="row">
+<div class="col-sm-4"> 
+<label>Title</label>  
+   <input type="text" class="form-control" required name="title"/>
+</div>
+<div class="col-sm-4">
+<label>Category</label>
+  <select class="form-control" name="category" required>
+  <option>SELECT ONE</option>
+{% for c in category %}
+  <option>{{c.name}}</option>
+{% endfor %}</select>
+</div>
+<div class="col-sm-4">
+<label>Date</label>
+   <input name="date" type="date" required class="form-control"/>
+</div>
+<div class="col-sm-6">
+<label>Insta</label>  
+<input type="text" name="insta" class="form-control" />
+</div>
+ <div class="col-sm-6">
+<label>Instagram Title</label>
+  <input type="text" name="insta_title" class="form-control" name="instagramTitle" />
+</div> 
+
+
+<div class="col-sm-12">
+<label>Body</label>
+   <textarea name="body"  id="story_body" class="form-control" required ></textarea
+</div> 
+
+<div class="col-sm-12">
+<label>Tags</label>
+<select class="form-control" name="tags[]" required id="story_tag" multiple>
+<option>Choose Tags</option></select>
+</div> 
+       </div>
+
+   <input style="margin:10px;color:#fff;background-color:#007bff;border:none;"  type="submit"  class="btn btn-success"{{ button_label|default('Save') }}/>
+
+      </form>

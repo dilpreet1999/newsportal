@@ -1,0 +1,44 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}ChannelRefference index{% endblock %}
+
+{% block body %}
+    <h1>ChannelRefference index</h1>
+
+    <b>Story:</b><h4>{{ story.title }}</h4>
+    <strong>Category</strong><h5>{{ story.category.name }}</h5>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Name</th>
+                <th>Website</th>
+                <th>PublishedOn</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for channel_refference in channel_refferences %}
+                <tr>
+                    <td>{{ channel_refference.id }}</td>
+                    <td>{{ channel_refference.title }}</td>
+                    <td>{%if channel_refference.name %}{{ channel_refference.name.name }}{% endif %}</td>
+                    <td>{{ channel_refference.Website }}</td>
+                    <td>{{ channel_refference.publishedOn ? channel_refference.publishedOn|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>
+                        <a href="{{ path('channel_refference_show', {'id': channel_refference.id,'storyId':storyId}) }}">show</a>
+                        <a href="{{ path('channel_refference_edit', {'id': channel_refference.id,'storyId':storyId}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('channel_refference_new',{'storyId':storyId}) }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'user/base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+{% block stylesheet %}
+
+{% endblock %}
+{% block body %}
+
+    <div class="loader" id="presidents"></div>
+
+    <ul class="list-group">     
+        {% for s in story %}           
+
+
+            <li class="list-group-item">
+                
+                <a style="text-decoration:none;"  href="{{ path('story_view',{'id':s.id,'slug':s.title|slug}) }}"><h3 style="color:black;">{{ s.title|raw }}</h3></a>
+                <a class="btn btn-success" href="{{ path('user_story_tag_add',{'id':s.id}) }}"><i class="fa fa-tags"></i>Add Tag</a>
+                <a class="btn btn-danger" href="{{ path('user_story_youtube_index',{'storyId':s.id}) }}"><i class="fab fa-youtube"></i>Youtube</a>
+                <a class="btn btn-primary" href="{{ path('user_story_facebook_index',{'storyId':s.id}) }}"><i class="fab fa-facebook-f"></i>Facebook</a>
+                <a class="btn btn-primary" href="{{ path('user_channel_refference_index',{'storyId':s.id}) }}"><i class="fa fa-address-card"></i>Reference</a>
+                <a class="btn btn-primary" href="{{ path('user_story_edit',{'storyId':s.id}) }}"><i class="fa fa-pencil-alt"></i>Edit</a>
+                <a class="btn btn-primary" href="{{ path('user_story_twitter_index',{'storyId':s.id}) }}"><i class="fab fa-twitter-square"></i>Twitter</a>
+                <a class="btn btn-primary" href="{{ path('user_story_images_index',{'storyId':s.id}) }}"><i class="fas fa-image"></i>Images</a>
+
+
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+{% block javascript %}
+    <script type="text/javascript" src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
+    <script>
+            $(function () {
+            $('#presidents').initDataTables({{ datatable_settings(story) }},
+                    {
+                        responsive: true,
+                        searching: true,
+                        dom: 'Bfrtip',
+                    }
+            )
+            });
+    </script>
+    {% endblock %}

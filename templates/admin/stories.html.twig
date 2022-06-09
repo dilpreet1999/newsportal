@@ -1,0 +1,34 @@
+{% extends "admin/base.html.twig" %}
+{% block title %}Users Report{% endblock %}
+{% block stylesheet %}
+    {{encore_entry_link_tags('datatable')}}
+    <style>
+        #presidents {
+            border: 1px solid #888;
+            background: #f7f7f7;
+            padding: 1em;
+            margin-bottom: 1em;
+        }
+    </style>S
+{% endblock %}
+{% block body %}
+    <h1>Stories</h1>
+    <div id="result">..Loading</div>
+    <div id="table">..Loading</div>
+{% endblock %}
+{% block javascript %}
+    {{ encore_entry_script_tags('datatable') }}
+
+    <script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
+    <script>
+        $(function () {
+        $('#table').initDataTables({{ datatable_settings(datatable) }}, {
+        responsive: true,
+                searching: true,
+                dom: 'Bfrtip',
+                rowReorder: true
+
+        });
+       
+    </script>
+{% endblock %}

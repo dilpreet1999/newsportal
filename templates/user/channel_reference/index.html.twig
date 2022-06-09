@@ -1,0 +1,39 @@
+{% extends 'user/base.html.twig' %}
+
+{% block title %}ChannelRefference index{% endblock %}
+
+{% block body %}
+    <h1>ChannelRefference index</h1>
+    <a class="btn btn-primary" href="{{ path('user_channel_refference_new',{'storyId':storyId}) }}">Create new</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Name</th>
+                <th>Website</th>
+                <th>PublishedOn</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for channel_refference in channel_refferences %}
+                <tr>
+                    <td>{{ channel_refference.id }}</td>
+                    <td>{{ channel_refference.title }}</td>
+                    <td>{{ channel_refference.name.name }}</td>
+                    <td>{{ channel_refference.website }}</td>
+                    <td>{{ channel_refference.publishedOn ? channel_refference.publishedOn|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>
+                        <a class="btn btn-danger btn-sm" href="{{ path('user_channel_refference_delete',{'id':channel_refference.id}) }}">Delete</a> </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

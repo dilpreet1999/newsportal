@@ -1,0 +1,38 @@
+{% extends 'user/base.html.twig' %}
+
+{% block title %}StoryImages index{% endblock %}
+
+{% block body %}
+    <h1>StoryImages index</h1>
+    <a class="btn btn-primary" href="{{ path('user_story_images_new',{'id':storyId}) }}">Create new</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for story_image in story_images %}
+                <tr>
+                    <td>{{ story_image.id }}</td>
+                    <td><a href="{{ path('story_images_view',{'id':story_image.id,'size':600,'name':story_image.fileName}) }}"><img class="img-fluid" src="{{ path('story_images_view',{'id':story_image.id,'size':200,'name':story_image.fileName}) }}"></a></td>
+                    <td>
+                        {#                    <a href="{{ path('story_images_show', {'id': story_image.id}) }}">show</a>#}
+                        <a href="{{ path('user_story_images_edit', {'id': story_image.id,'storyId':storyId}) }}">edit</a>
+                        {% if story_image.isPrimary == false %}
+                            <a class="btn btn-success" href="{{ path('user_story_images_set_primary', {'id': story_image.id,'storyId':storyId}) }}">Set Primary</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

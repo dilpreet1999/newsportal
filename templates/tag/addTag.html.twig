@@ -1,0 +1,33 @@
+{% extends "admin/base.html.twig" %}
+{% block body %}
+    <form class="form-group" action="{{ path('tag_submit',{'id':id}) }}" method="post">
+        <select style="width:100%;" id="story_tags"  name="tags[]"  multiple>
+            <option value="story_tags"></option>
+        </select><br>
+  <input type="submit" value="Add Tag" class="btn btn-primary">
+</form> 
+{% endblock  %}
+{% block javascript %}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#story_tags').select2({
+                allowClear: true,
+                placeholder: "Choose Tags",
+                minimumInputLength: 3,
+                
+                ajax: {
+                    url: "{{path('tag_ajax_select')}}",
+                    data: function (params) {
+                        var query = {
+                            q: params.term,
+                            t: Math.random()
+                        }
+                        // Query parameters will be ?search=[term]&type=public
+                        return query;
+                    }
+                }
+            });
+        });
+    </script>
+    {% endblock %}

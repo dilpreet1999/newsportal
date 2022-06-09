@@ -1,0 +1,8 @@
+{% extends "user/base.html.twig" %}
+{% block title %}Add Reference New{% endblock %}
+{% block body %}
+{{ form_start(form) }}
+{{ form_widget(form) }}
+<input type="submit" class="btn btn-info" value="submit"/>
+{{ form_end(form) }}
+{% endblock %}

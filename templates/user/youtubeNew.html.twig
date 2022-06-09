@@ -1,0 +1,25 @@
+{% extends "user/base.html.twig" %}
+{% block title %}Youtube New{% endblock %}
+{% block body %}
+    {{form_start(form)}}
+    <div class="col-sm-12" c>
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+
+    </div>
+    <div class="col-sm-12">
+
+        {{ form_label(form.url) }}
+        <small>(e.g:https://www.youtube.com/watch?v=a4pTvPtdSHQ
+            )</small>
+            {{ form_widget(form.url) }}
+
+    </div>
+    <div class="col-sm-12">
+
+        {{ form_label(form.rank) }}
+        {{ form_widget(form.rank) }}
+        <input type="submit" value="submit" class="btn btn-primary"/>
+    </div>
+        {{form_end(form)}}
+    {% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="col-sm-9">
+    <h1>User Info</h1>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Save" class="btn btn-outline-danger">
+    {{ form_end(form) }}
+    </div>
+{% endblock %}

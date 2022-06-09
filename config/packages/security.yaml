@@ -1,0 +1,100 @@
+
+security:
+    encoders:
+        user:
+            class: App\Entity\User
+            algorithm: sha1
+            iterations: 1
+            encode_as_base64: false
+        admin:
+            class: App\Entity\Admin
+            algorithm: sha1
+            iterations: 1
+            encode_as_base64: false
+        
+
+
+    role_hierarchy:
+        ROLE_USER:        [ROLE_USER]
+        ROLE_ADMIN:       [ROLE_ADMIN,ROLE_USER]
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_SUPER_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        user_provider:
+            entity: { class: App\Entity\User, property: email }
+        
+        admin_provider:
+            entity: { class: App\Entity\Admin, property: email }
+        # used to reload user from session & other features (e.g. switch_user)
+        
+        # used to reload user from session & other features (e.g. switch_user)
+#        
+        # used to reload user from session & other features (e.g. switch_user)
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+            guard:
+                provider: fos_userbundle
+                authenticators:
+                    - App\Security\FacebookAuthenticator
+                    - App\Security\GoogleAuthenticator
+        
+        admin_area:
+            switch_user: true
+            pattern: ^/admin
+            anonymous: ~
+            form_login:
+                login_path: admin_login
+                check_path: admin_login
+                default_target_path: admin
+            remember_me:
+                secret:      admin_123456
+                lifetime: 31536000
+                always_remember_me: true
+                name: silva.admin
+                remember_me_parameter: _remember_me
+                path: /
+                #domain: ~
+            logout:
+                path: admin_logout
+                invalidate_session: true
+                target: /
+            provider: admin_provider
+      
+        user_area:
+            switch_user: true
+            pattern: ^/
+            anonymous: ~
+            form_login:
+                login_path: user_login
+                check_path: user_login
+                default_target_path: homepage
+            remember_me:
+                secret:      user_123456
+                lifetime: 31536000
+                always_remember_me: true
+                name: silva
+                remember_me_parameter: _remember_me
+                path: /
+                #domain: ~
+            logout:
+                path: user_logout
+                invalidate_session: true
+                target: /
+            provider: user_provider
+    access_control:
+        - { path: ^/user/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/user, roles: ROLE_USER }
+        
+        - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        # - { path: ^/profile, roles: ROLE_USER }
+
+        # - { path: ^/profile, roles: ROLE_USER }
+        
+#        - { path: ^/user, roles: ROLE_USER }
+        # - { path: ^/profile, roles: ROLE_USER }
+        
+        # - { path: ^/profile, roles: ROLE_USER }

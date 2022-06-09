@@ -1,0 +1,41 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors~admin~app~datatable.js",
+        "/build/vendors~admin~app.js",
+        "/build/vendors~app.js",
+        "/build/app.js"
+      ],
+      "css": [
+        "/build/vendors~admin~app.css",
+        "/build/vendors~app.css"
+      ]
+    },
+    "admin": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors~admin~app~datatable.js",
+        "/build/vendors~admin~app.js",
+        "/build/vendors~admin.js",
+        "/build/admin.js"
+      ],
+      "css": [
+        "/build/vendors~admin~app.css",
+        "/build/vendors~admin.css"
+      ]
+    },
+    "datatable": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors~admin~app~datatable.js",
+        "/build/vendors~datatable.js",
+        "/build/datatable.js"
+      ],
+      "css": [
+        "/build/vendors~datatable.css"
+      ]
+    }
+  }
+}

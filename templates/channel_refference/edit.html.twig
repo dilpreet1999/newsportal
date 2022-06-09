@@ -1,0 +1,14 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Edit ChannelRefference{% endblock %}
+
+{% block body %}
+    <h1>Edit ChannelRefference</h1>
+    <b>Story:</b><h4>{{ story.title }}</h4>
+    <strong>Category</strong><h5>{{ story.category.name }}</h5>
+    {{ include('channel_refference/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('channel_refference_index',{'storyId':storyId}) }}">back to list</a>
+
+    {{ include('channel_refference/_delete_form.html.twig') }}
+{% endblock %}
