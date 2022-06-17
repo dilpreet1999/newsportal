@@ -4,6 +4,8 @@ Its a news directory
 Clone a project
 composer install
 symfony server:start
+
+
 make databse
 php bin/console d:d:c
 
